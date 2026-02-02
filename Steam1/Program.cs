@@ -26,11 +26,11 @@ namespace Steam
             // CREATING SAMPLE PLAYERS
             PlayerController players = new();
 
-            Player nijat = new("nijat", PlayerStatus.InGame, csgo);
             Player vusal = new("vusal", PlayerStatus.Offline);
             Player seyyad = new("seyyad", PlayerStatus.Offline);
             Player elvin = new("elvin", PlayerStatus.Online);
             Player kamran = new("kamran", PlayerStatus.Online);
+            Player nijat = new("nijat", PlayerStatus.InGame, csgo, [vusal, seyyad]);
             Player rashad = new("rashad", PlayerStatus.Blocked);
             Player orxan = new("orxan", PlayerStatus.InGame, csgo);
             Player emil = new("emil", PlayerStatus.InGame, fortnite);
@@ -59,7 +59,7 @@ namespace Steam
 
             GameController games = new(players);
             games.Games.AddRange(csgo, dota2, pubg, valorant, fortnite, apexLegends, codWarzone, rainbowSixSiege, rust, amongUs);
-            Menu menu = new(players, games);
+            Menu menu = new(players, games, nijat);
             menu.Start();
         }
     }

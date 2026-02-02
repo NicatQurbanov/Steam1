@@ -4,10 +4,12 @@ using System.Text;
 
 namespace Steam
 {
-    public class Menu(PlayerController playerController, GameController gameController)
+    public class Menu(PlayerController playerController, GameController gameController, Player currPlayer)
     {
         public PlayerController PlayerCtrl { get; } = playerController;
         public GameController GameCtrl { get; } = gameController;
+        public Player CurrPlayer { get; } = currPlayer;
+
 
         public void Start()
         {
@@ -61,6 +63,12 @@ namespace Steam
                         break;
                 }
             } while (menuSelection.KeyChar != 'e');
+        }
+
+        public void Friends()
+        {
+            Console.Clear();
+            Console.WriteLine();
         }
     }
 }
